@@ -1,0 +1,148 @@
+/// Main Styles File
+/// Here we import all the global Styles files we need for our project.
+
+@import "styles/normalize.scss";
+@import "styles/root.scss";
+@import "styles/fonts.scss";
+
+html {
+  box-sizing: border-box;
+
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+body {
+  background-color: var(--color-primary-bg);
+  font-family: var(--font-family);
+  color: var(--color-secondary-text);
+}
+
+
+.hero-component {
+  max-width: 1140px;
+  margin:160px auto;
+  display:flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  @media #{$tablet-breakpoint} { 
+    max-width: 500px;
+  }
+  @media #{$mobile-breakpoint} {
+    margin:48px 16px 16px 16px;
+  }
+  &__left {
+    flex:6;
+    max-width: 467px;
+    @media #{$tablet-breakpoint} {
+      flex: auto;
+      max-width: 100%;
+    }
+  }
+  &__right {
+    flex:8;
+    max-width: 555px;
+    @media #{$tablet-breakpoint} {
+      flex: auto;
+      max-width: 100%;
+    }
+  }
+  p {
+    @include body1();
+  
+  }
+  h1 {
+    @include headerFont(h1);
+    margin-bottom: 24px;
+    @media #{$mobile-breakpoint} {
+      @include headerFont(h2)
+    }
+  }
+  h3 {
+    @include headerFont(h3);
+    margin:16px 0;
+  }
+ 
+
+  &__elements {
+    display:flex;
+    flex-wrap:wrap;
+    @media #{$tablet-breakpoint} { 
+      margin-top: 24px;
+    }
+    @media #{$mobile-breakpoint} {
+      margin-top: 16px;
+    }
+    img {
+      width: 32px;
+      height: 64px;
+      max-height: 64px;
+      line-height: 64px;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    &:hover > 
+    .item:not(:hover) {
+      filter: brightness(0.5) saturate(0) contrast(1.2) blur(20px);
+    }
+    .item {
+      flex: 1 1 calc(50% - 24px);
+      @media #{$tablet-breakpoint} {
+        padding: 20px 0;
+        margin: 0 8px 16px 8px;
+      }
+      @media #{$mobile-breakpoint} { 
+        flex: 1 1 100%;
+        margin:0 0 16px 0;
+      }
+
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 16px;
+      border-radius: 24px;
+      background-color: var(--color-secondary-bg);
+      margin: 0 12px 32px 12px;
+      transform-origin: center;
+      transform: scale(1) translateZ(0);
+      transition: filter 200ms linear,
+      transform 200ms linear;
+      div[class^="tile"] {
+        width: 64px;
+        height: 64px;
+        border-radius: 16px;
+      }
+      &:hover {
+        transform: scale(1.05) translateZ(0);
+        cursor: pointer;
+      }
+   
+      @each $section, $color in $section-colors {
+        .tile-#{$section} {
+            background-color: $color;
+        }
+      }
+  
+      
+      p {
+        opacity: 0.5;
+
+        @media #{$tablet-breakpoint} {
+          @include body2()
+        }
+      }
+     }
+     .item > * {
+      flex:1 1 100%;
+     }
+  }
+  
+  
+}
+
+

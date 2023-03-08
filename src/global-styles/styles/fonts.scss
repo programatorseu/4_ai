@@ -1,0 +1,27 @@
+/// Main Fonts File
+/// Here we import all the fonts files we need for our project.
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap');
+
+@mixin heading() {
+    font: var(--font-medium) 48px/56px var(--font-family);
+    letter-spacing: -0.002em;
+}
+@mixin headerFont($heading: h1) {
+    @include heading();
+    @if $heading == h2 {
+        font-size: 32px;
+        line-height: 40px;
+    } @else if $heading == h3 {
+        font-size: 20px;
+        line-height: 20px;
+        letter-spacing: 0;
+    }
+}
+
+@mixin body1() {
+    font: var(--font-regular) 16px/24px var(--font-family);
+}
+@mixin body2() {
+    font: var(--font-regular) 14px/22px var(--font-family);
+}
